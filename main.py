@@ -1,4 +1,16 @@
-# This is a sample Python script.
+# pip install django
+# pip install mysql
+# pip install mysql-connector-python
+# pip install mysql-connector
+# django-admin startproject quizManagement
+
+# setup installed app and database in settings.py
+# create database
+# py manage.py migrate
+# py manage.py runserver
+
+# py manage.py createsuperuser
+# password: masterpass123
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
