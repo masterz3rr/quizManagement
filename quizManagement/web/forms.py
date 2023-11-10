@@ -7,13 +7,21 @@ class SignUpForm(UserCreationForm):
     email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Email Address'}))
     first_name = forms.CharField(label="", max_length="100", widget=forms.TextInput(attrs={'class':'form-control','placeholder':'First Name'}))
     last_name = forms.CharField(label="", max_length="100", widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Last Name'}))
+    USERTYPE_CHOICES = (
+        ('', 'Open this select menu'),
+        ('1', 'Teacher'),
+        ('2', 'Student'),
+    )
+    usertype = forms.ChoiceField(choices=USERTYPE_CHOICES, widget=forms.Select(attrs={'class': 'form-select'}))
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
+        fields = ('usertype', 'username', 'first_name', 'last_name', 'email', 'password1', 'password2')
 
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
+        self.fields['usertype'].label = ''
+        self.fields['usertype'].help_text = ''
 
         self.fields['username'].widget.attrs['class'] = 'form-control'
         self.fields['username'].widget.attrs['placeholder'] = 'User Name'
